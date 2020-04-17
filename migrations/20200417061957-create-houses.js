@@ -30,6 +30,9 @@ module.exports = {
       typerent: {
         type: Sequelize.STRING,
       },
+      amenities: {
+        type: Sequelize.STRING,
+      },
       bedroom: {
         type: Sequelize.INTEGER,
       },

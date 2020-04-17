@@ -8,12 +8,14 @@ module.exports = (sequelize, DataTypes) => {
       cityId: DataTypes.INTEGER,
       price: DataTypes.STRING,
       typerent: DataTypes.STRING,
+      amenities: DataTypes.STRING,
       bedroom: DataTypes.INTEGER,
       bathroom: DataTypes.INTEGER,
     },
     {}
   );
   House.associate = function (models) {
+    // associations can be defined here
     House.belongsTo(models.City);
   };
   return House;

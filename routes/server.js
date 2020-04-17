@@ -5,37 +5,34 @@ const { index: allUsers, destroy: deleteUser } = require('../controllers/user');
 const {
   index: showHouses,
   show: showOneHouse,
+  create: createHouse,
+  update: updateHouse,
+  destroy: deleteHouse,
 } = require('../controllers/house');
+
 //Middleware
-
 const { authenticated } = require('../middlewares/auth');
-
-//auth routes
 
 //====ALL USERS ROUTER
 //SHOW ALL USERS
 router.get('/users', allUsers);
-//DELETE USER USING PARAMS ID
-router.delete('/user/:id', deleteUser);
-//LOGIN USERS
+// //DELETE USER USING PARAMS ID
+router.delete('/user/:id', authenticated, deleteUser);
+// //LOGIN USERS
 router.post('/signin', login);
-//REGISTER USERS
+// //REGISTER USERS
 router.post('/signup', register);
+
+//====ALL HOUSE ROUTE========
 //SHOW ALL HOUSE
 router.get('/houses', showHouses);
-//SHOW HOUSE BY PARAMS ID
+// //SHOW HOUSE BY PARAMS ID
 router.get('/house/:id', showOneHouse);
+// //CREATE HOUSE
+router.post('/house', authenticated, createHouse);
+/////UPDATE HOUSE//////
+router.patch('/house/:id', authenticated, updateHouse);
+/////DELETE HOUSE//////
+router.delete('/house/:id', authenticated, deleteHouse);
 
 module.exports = router;
-
-// const { index, create, show, update, destroy } = require('../controllers/user');
-
-// router.route('/').get(index).post(create);
-
-// router.route('/:id').get(show).patch(update).delete(destroy);
-
-// router.route('/').get(index);
-// const { index, create, show, update, destroy } = require('../controllers/user');
-// router.route('/').get(index).post(create);
-
-// router.route('/:id').get(show).patch(update).delete(destroy);
