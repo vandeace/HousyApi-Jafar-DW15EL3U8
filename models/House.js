@@ -8,7 +8,12 @@ module.exports = (sequelize, DataTypes) => {
       cityId: DataTypes.INTEGER,
       price: DataTypes.STRING,
       typerent: DataTypes.STRING,
-      amenities: DataTypes.STRING,
+      amenities: {
+        type: DataTypes.STRING,
+        get() {
+          return this.getDataValue('amenities').split(', ');
+        },
+      },
       bedroom: DataTypes.INTEGER,
       bathroom: DataTypes.INTEGER,
     },
