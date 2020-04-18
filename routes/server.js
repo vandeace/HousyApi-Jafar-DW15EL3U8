@@ -9,6 +9,12 @@ const {
   update: updateHouse,
   destroy: deleteHouse,
 } = require('../controllers/house');
+const {
+  index: showAllOrders,
+  show: showOneOrder,
+  create: makeOrder,
+  update: updateOrder,
+} = require('../controllers/transaction');
 
 //Middleware
 const { authenticated } = require('../middlewares/auth');
@@ -35,4 +41,13 @@ router.patch('/house/:id', authenticated, updateHouse);
 /////DELETE HOUSE//////
 router.delete('/house/:id', authenticated, deleteHouse);
 
+///======ALL TRANSACTION ROUTE=======
+////SHOW ALL TRANSACTION///////////
+router.get('/orders', showAllOrders);
+////SHOW TRANSACTION BY ID///////////
+router.get('/order/:id', showOneOrder);
+////CREATE NEW TRANSACTION ///////////
+router.post('/transaction', authenticated, makeOrder);
+////CREATE NEW TRANSACTION ///////////
+router.patch('/order/:id', authenticated, updateOrder);
 module.exports = router;
