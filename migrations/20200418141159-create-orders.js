@@ -15,8 +15,8 @@ module.exports = {
           model: 'users',
           key: 'id',
         },
-        onUpdate: 'RESTRICT',
-        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION',
+        onDelete: 'NO ACTION',
       },
       checkIn: {
         type: Sequelize.STRING,
@@ -31,8 +31,8 @@ module.exports = {
           model: 'houses',
           key: 'id',
         },
-        onUpdate: 'RESTRICT',
-        onDelete: 'RESTRICT',
+        onUpdate: 'NO ACTION',
+        onDelete: 'NO ACTION',
       },
       total: {
         type: Sequelize.STRING,

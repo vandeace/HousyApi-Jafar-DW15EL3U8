@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   House.associate = function (models) {
     // associations can be defined here
     House.belongsTo(models.User);
+    // House.belongsTo(models.Order);
   };
   return House;
 };
